@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MjengoPay {% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef9ff',
+                            100: '#dcf3ff',
+                            200: '#b2e8ff',
+                            300: '#6dd8ff',
+                            400: '#26c4ff',
+                            500: '#00a3ff',
+                            600: '#0084db',
+                            700: '#0069b3',
+                            800: '#005a94',
+                            900: '#004b7a',
+                            950: '#003152',
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #0084db 0%, #00a3ff 100%);
+        }
+        
+        .gradient-secondary {
+            background: linear-gradient(135deg, #ca8a04 0%, #eab308 100%);
+        }
+        
+        .gradient-hero {
+            background: radial-gradient(circle at top right, rgba(0, 132, 219, 0.15) 0%, rgba(0, 163, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%),
+                        linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(202, 138, 4, 0.05) 100%);
+        }
+        
+        .gradient-cta {
+            background: linear-gradient(135deg, rgba(0, 132, 219, 0.9) 0%, rgba(0, 69, 113, 0.95) 100%);
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="font-sans text-gray-800 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{% url 'home' %}" class="flex-shrink-0 flex items-center">
+                        <div class="h-10 w-10 rounded-lg gradient-primary flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">M</span>
+                        </div>
+                        <span class="ml-2 text-xl font-bold text-primary-800">MjengoPay</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#how-it-works" class="text-gray-700 hover:text-primary-600 px-3 py-2 transition duration-150">How It Works</a>
+                    <a href="#features" class="text-gray-700 hover:text-primary-600 px-3 py-2 transition duration-150">Features</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-primary-600 px-3 py-2 transition duration-150">Success Stories</a>
+                    <a href="tel:*123#" class="text-primary-700 hover:text-primary-800 px-3 py-2 transition duration-150">
+                        <i class="fas fa-phone-alt mr-1"></i> Dial *123#
+                    </a>
+                    <a href="#" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2 rounded-lg transition duration-150">
+                        Get Started
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#how-it-works" class="block px-3 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">How It Works</a>
+                <a href="#features" class="block px-3 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Features</a>
+                <a href="#testimonials" class="block px-3 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Success Stories</a>
+                <a href="tel:*123#" class="block px-3 py-2 text-primary-700 hover:bg-primary-50 hover:text-primary-800 rounded-md">
+                    <i class="fas fa-phone-alt mr-1"></i> Dial *123#
+                </a>
+                <a href="#" class="block px-3 py-2 text-white bg-primary-600 hover:bg-primary-700 rounded-md mt-2">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-950 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-lg gradient-primary flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">M</span>
+                        </div>
+                        <span class="ml-2 text-xl font-bold text-white">MjengoPay</span>
+                    </div>
+                    <p class="mt-2 text-gray-300 max-w-md">
+                        Transforming construction workforce management with mobile technology
+                    </p>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-400">Powered by</p>
+                        <div class="mt-1">
+                            <img src="{% static 'images/africastalking-logo.png' %}" alt="Africa's Talking" class="h-8">
+                        </div>
+                        <p class="mt-3 text-sm">Made for Africa's Talking Open Hackathon 2025</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400">About</h3>
+                        <div class="mt-4 space-y-2">
+                            <a href="#" class="text-base text-gray-300 hover:text-white block">About Us</a>
+                            <a href="#" class="text-base text-gray-300 hover:text-white block">How It Works</a>
+                            <a href="#" class="text-base text-gray-300 hover:text-white block">Features</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400">Support</h3>
+                        <div class="mt-4 space-y-2">
+                            <a href="#" class="text-base text-gray-300 hover:text-white block">Contact Us</a>
+                            <a href="#" class="text-base text-gray-300 hover:text-white block">Help Center</a>
+                            <a href="tel:*123#" class="text-base text-gray-300 hover:text-white block">USSD: *123#</a>
+                        </div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400">Connect</h3>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                <div class="text-sm text-gray-400">
+                    &copy; 2025 MjengoPay. All rights reserved.
+                </div>
+
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

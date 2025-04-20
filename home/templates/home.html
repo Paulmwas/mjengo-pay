@@ -1,0 +1,558 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}MjengoPay - Manage Construction Workers Instantly{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="pt-16 pb-24 gradient-hero overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
+                <div class="inline-block mb-4 px-4 py-1 rounded-full bg-primary-100 text-primary-800 border border-primary-200">
+                    <span class="text-sm font-medium">Africa's Talking Open Hackathon 2025</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900 tracking-tight leading-tight">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-700 to-primary-500">Hire, Manage,</span> and Pay Construction Workers Instantly
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto md:mx-0">
+                    Post jobs, connect with skilled workers via SMS, and pay securely with mobile money—all in one platform designed for Kenya's construction industry.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="px-8 py-4 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 transform hover:-translate-y-1 transition duration-300">
+                        Get Started for Free
+                    </a>
+                    <a href="tel:*123#" class="px-8 py-4 rounded-lg border-2 border-gray-300 text-gray-700 font-medium flex items-center justify-center hover:bg-gray-50 hover:border-gray-400 transition duration-300">
+                        <i class="fas fa-phone-alt mr-2 text-primary-600"></i>
+                        Register via *123#
+                    </a>
+                </div>
+                <div class="mt-8 text-sm text-gray-500 flex items-center justify-center md:justify-start">
+                    <span>Powered by</span>
+                    <img src="{% static 'images/ATLogo.jpg' %}" alt="Africa's Talking" class="h-5 ml-2">
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="relative bg-white shadow-xl rounded-2xl p-4 md:p-6 border border-gray-100">
+                    <div class="absolute -top-4 -right-4 h-16 w-16 bg-secondary-400 rounded-full flex items-center justify-center shadow-lg text-white">
+                        <i class="fas fa-hand-holding-usd text-2xl"></i>
+                    </div>
+                    <img 
+                        src="{% static 'images/profile2.png' %}" 
+                        alt="Foreman posting job and worker receiving SMS" 
+                        class="w-full rounded-lg shadow-inner"
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400?text=MjengoPay+ConTech'"
+                    >
+                    <div class="absolute -bottom-6 -left-6 py-2 px-4 bg-white rounded-lg shadow-lg border border-primary-100">
+                        <div class="flex items-center">
+                            <div class="h-10 w-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
+                                <i class="fas fa-sms"></i>
+                            </div>
+                            <div class="ml-3">
+                                <div class="text-xs text-gray-500">SMS Notification</div>
+                                <div class="text-sm font-medium">Job available at Westlands site</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Clients Section -->
+<section class="py-10 bg-gray-50 border-t border-b border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-sm font-medium text-gray-500 mb-6">TRUSTED BY CONSTRUCTION COMPANIES</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+            <div class="h-8">
+                <img src="{% static 'images/profile1.png' %}" alt="Client 1" class="h-full grayscale"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/120x30?text=Client+1'">
+            </div>
+            <div class="h-8">
+                <img src="{% static 'images/client1.png' %}" alt="Client 2" class="h-full grayscale"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/120x30?text=Client+2'">
+            </div>
+            <div class="h-8">
+                <img src="{% static 'images/client1.png' %}" alt="Client 3" class="h-full grayscale"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/120x30?text=Client+3'">
+            </div>
+            <div class="h-8">
+                <img src="{% static 'images/client4.png' %}" alt="Client 4" class="h-full grayscale"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/120x30?text=Client+4'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Statement Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Struggling with Construction Workforce Management?</h2>
+            <p class="text-lg text-gray-600">Kenya's construction industry faces unique challenges. We've designed MjengoPay to address them head-on.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div class="h-14 w-14 rounded-full bg-red-100 flex items-center justify-center text-red-500 mb-6">
+                    <i class="fas fa-user-slash text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Labor Shortages</h3>
+                <p class="text-gray-600">Finding skilled plumbers, electricians, and other specialized workers can take days, delaying projects and increasing costs.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div class="h-14 w-14 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500 mb-6">
+                    <i class="fas fa-clock text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Payment Delays</h3>
+                <p class="text-gray-600">Workers often wait weeks for wages, creating distrust and reducing workforce reliability for future projects.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div class="h-14 w-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mb-6">
+                    <i class="fas fa-comment-slash text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Communication Gaps</h3>
+                <p class="text-gray-600">Lack of real-time job notifications and coordination leads to misunderstandings, errors, and project delays.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Overview Section -->
+<section id="how-it-works" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <span class="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-800 font-medium text-sm mb-4">HOW IT WORKS</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Streamline Your Construction Projects in 3 Easy Steps</h2>
+            <p class="text-lg text-gray-600">MjengoPay connects foremen with workers and simplifies payments using mobile technology.</p>
+        </div>
+        
+        <div class="relative">
+            <!-- Connect Line (Desktop) -->
+            <div class="hidden md:block absolute top-32 left-0 right-0 h-1 bg-primary-200 z-0"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center md:text-left">
+                    <div class="relative mb-6 inline-block">
+                        <div class="h-16 w-16 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-xl">1</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Post a Job</h3>
+                    <p class="text-gray-600 mb-4">Foremen post jobs on the MjengoPay dashboard, specifying the site location and worker type needed (plumber, electrician, etc).</p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <span class="ml-3 text-sm font-medium text-gray-600">Web Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center md:text-left">
+                    <div class="relative mb-6 inline-block">
+                        <div class="h-16 w-16 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-xl">2</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Notify Workers via SMS</h3>
+                    <p class="text-gray-600 mb-4">Registered workers receive instant SMS notifications with job details and apply via USSD. No smartphone required!</p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fas fa-sms"></i>
+                            </div>
+                            <span class="ml-3 text-sm font-medium text-gray-600">SMS & USSD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center md:text-left">
+                    <div class="relative mb-6 inline-block">
+                        <div class="h-16 w-16 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-xl">3</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Pay Securely</h3>
+                    <p class="text-gray-600 mb-4">Track attendance, initiate payments via mobile money, and workers receive SMS confirmations instantly.</p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <span class="ml-3 text-sm font-medium text-gray-600">Mobile Money</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-16 text-center">
+            <a href="#" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+                Learn more about how it works
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <span class="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-800 font-medium text-sm mb-4">FEATURES</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose MjengoPay?</h2>
+            <p class="text-lg text-gray-600">Our platform is designed specifically for Kenya's construction industry needs.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-list-ul text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Job Posting & Matching</h3>
+                <p class="text-gray-600">Easily post jobs and connect with skilled workers in your area. Specify skills, location, and dates.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-sms text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Real-Time SMS Notifications</h3>
+                <p class="text-gray-600">Workers get instant job alerts via SMS, ensuring quick responses. No internet connection needed.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-mobile-alt text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">USSD Accessibility</h3>
+                <p class="text-gray-600">Workers register and apply for jobs via USSD (*123#), making the platform accessible to everyone with a basic mobile phone.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-money-bill-wave text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Secure Payments</h3>
+                <p class="text-gray-600">Pay workers directly via mobile money with SMS confirmations. No more cash handling or payment disputes.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-tachometer-alt text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Foreman Dashboard</h3>
+                <p class="text-gray-600">Manage jobs, track attendance, and oversee payments in one place. Get insights into worker performance.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-chart-line text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Performance Analytics</h3>
+                <p class="text-gray-600">Track project progress, worker attendance, and payment history with visual reports and actionable insights.</p>
+            </div>
+        </div>
+        
+        <div class="mt-16 bg-gradient-to-r from-primary-50 to-blue-50 p-8 rounded-2xl border border-primary-100 shadow-inner">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/4 mb-6 md:mb-0 flex justify-center">
+                    <div class="h-20 w-20 rounded-full bg-primary-100 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-primary-600 text-3xl"></i>
+                    </div>
+                </div>
+                <div class="md:w-3/4 text-center md:text-left">
+                    <h3 class="text-xl font-bold text-primary-900 mb-2">No Smartphone? No Problem!</h3>
+                    <p class="text-primary-700 mb-4">MjengoPay is designed for everyone. Workers can access all features via SMS and USSD without needing a smartphone or internet connection.</p>
+                    <a href="tel:*123#" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+                        Dial *123# to get started
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <span class="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-800 font-medium text-sm mb-4">SUCCESS STORIES</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">See How MjengoPay Transforms Construction Sites</h2>
+            <p class="text-lg text-gray-600">Real stories from foremen and workers using our platform.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex items-start mb-6">
+                    <div class="h-14 w-14 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden">
+                        <img 
+                            src="{% static 'images/image.jpg' %}" 
+                            alt="John, Foreman" 
+                            class="h-full w-full object-cover"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/56?text=J'"
+                        >
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-bold text-gray-900">John Kamau</h4>
+                        <p class="text-gray-600">Foreman, Westlands Construction Site</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-6">
+                    "I used to struggle to find skilled plumbers for my site in Westlands. With MjengoPay, I posted a job, notified workers via SMS, and hired two plumbers within hours. Paying them instantly via M-Pesa kept everyone happy and my project on track."
+                </p>
+                <div class="flex text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex items-start mb-6">
+                    <div class="h-14 w-14 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden">
+                        <img 
+                            src="{% static 'images/profile1.png' %}" 
+                            alt="David, Electrician" 
+                            class="h-full w-full object-cover"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/56?text=D'"
+                        >
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-bold text-gray-900">David Omondi</h4>
+                        <p class="text-gray-600">Electrician, Nairobi</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-6">
+                    "As an electrician, finding work used to be challenging. Now I get SMS alerts for nearby jobs and can apply instantly through *123#. The best part is getting paid the same day through M-Pesa. MjengoPay has changed how I find work."
+                </p>
+                <div class="flex text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-16 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">From Labor Shortages to Full Teams in Hours</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">85%</div>
+                        <p class="text-gray-600">Reduction in time to find skilled workers</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">100%</div>
+                        <p class="text-gray-600">On-time payments to workers</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">63%</div>
+                        <p class="text-gray-600">Increase in worker retention rates</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+                        Read the full case study
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- API Integration Section -->
+<section class="py-20 bg-gradient-to-r from-primary-900 to-primary-800 text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <span class="inline-block px-4 py-1 rounded-full bg-white bg-opacity-20 text-white font-medium text-sm mb-4">POWERED BY AFRICA'S TALKING</span>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Built with Africa's Talking APIs</h2>
+            <p class="text-lg text-primary-100">MjengoPay leverages powerful APIs to connect foremen with workers seamlessly.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-xl border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300">
+                <div class="h-12 w-12 rounded-lg bg-white bg-opacity-20 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-sms text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">SMS API</h3>
+                <p class="text-primary-100 mb-4">Sends instant job notifications to workers and payment confirmations with delivery tracking.</p>
+                <a href="https://africastalking.com/sms" class="inline-flex items-center text-white font-medium">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-xl border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300">
+                <div class="h-12 w-12 rounded-lg bg-white bg-opacity-20 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-mobile-alt text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">USSD API</h3>
+                <p class="text-primary-100 mb-4">Enables workers to register and apply for jobs using any mobile phone without internet access.</p>
+                <a href="https://africastalking.com/ussd" class="inline-flex items-center text-white font-medium">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-xl border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300">
+                <div class="h-12 w-12 rounded-lg bg-white bg-opacity-20 flex items-center justify-center text-white mb-6">
+                    <i class="fas fa-money-bill-wave text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Payments API</h3>
+                <p class="text-primary-100 mb-4">Processes secure mobile money transactions to pay workers instantly, with receipt verification.</p>
+                <a href="https://africastalking.com/payments" class="inline-flex items-center text-white font-medium">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="mt-16 text-center">
+            <div class="inline-block p-1 bg-white bg-opacity-10 rounded-full mb-8">
+                <img 
+                    src="{% static 'images/ATLogo.jpg' %}" 
+                    alt="Africa's Talking" 
+                    class="h-8"
+                    onerror="this.onerror=null; this.src='https://via.placeholder.com/160x32?text=Africa%27s+Talking'"
+                >
+            </div>
+            <p class="text-primary-100 max-w-2xl mx-auto">
+                Built for the Africa's Talking Open Hackathon 2025. Our solution leverages Africa's Talking APIs to connect construction workers and foremen across Kenya.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 gradient-cta"></div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ready to Build Smarter with MjengoPay?</h2>
+                <p class="text-lg text-gray-600">Start connecting with skilled workers and streamlining your payments today.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl text-center md:text-left">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">For Foremen</h3>
+                    <p class="text-gray-600 mb-6">Post jobs, find skilled workers, and manage payments all in one place.</p>
+                    <a href="#" class="block w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-center">
+                        Sign Up Now
+                    </a>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl text-center md:text-left">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">For Workers</h3>
+                    <p class="text-gray-600 mb-6">Get job notifications via SMS and receive payments instantly via mobile money.</p>
+                    <a href="tel:*123#" class="block w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-center">
+                        Dial *123# to Register
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <p>No credit card required. Free for small construction teams.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <span class="inline-block px-4 py-1 rounded-full bg-primary-100 text-primary-800 font-medium text-sm mb-4">FAQ</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p class="text-lg text-gray-600">Everything you need to know about MjengoPay.</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-6">
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <button class="flex w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-lg font-medium text-gray-900">How does worker registration via USSD work?</span>
+                        <span class="ml-auto text-primary-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        Workers dial *123# on any mobile phone, then follow the prompts to register their name, skills, and location. Once registered, they'll receive SMS notifications about relevant jobs in their area.
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <button class="flex w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-lg font-medium text-gray-900">Do foremen need a smartphone to use MjengoPay?</span>
+                        <span class="ml-auto text-primary-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        While the dashboard experience is best on a smartphone or computer, foremen can also access core features via SMS and USSD. We designed MjengoPay to be accessible to everyone regardless of device.
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <button class="flex w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-lg font-medium text-gray-900">How are payments processed?</span>
+                        <span class="ml-auto text-primary-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        Payments are processed securely through mobile money providers like M-Pesa. Foremen initiate payments through the dashboard, workers receive the money instantly, and both parties get SMS confirmations.
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <button class="flex w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-lg font-medium text-gray-900">Is there a fee to use MjengoPay?</span>
+                        <span class="ml-auto text-primary-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        MjengoPay is free for small construction teams (up to 5 workers). For larger teams, we offer affordable monthly plans with additional features like advanced reporting and worker rating systems.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('svg');
+        
+        answer.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    }
+</script>
+{% endblock %}
