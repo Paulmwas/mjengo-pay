@@ -1,16 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MjengoPay Foreman</title>
-</head>
-<body>
-    <ul>
-    {% for jobs in job %}
-    <li>{{jobs.title}}</li>
-    
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Foreman Dashboard{% endblock %}
+
+{% block extra_head %}
+<!-- Tailwind CSS from CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="flex h-screen bg-gray-100">
+    <!-- Sidebar -->
+    <div class="hidden md:flex md:w-64 md:flex-col bg-gray-800 text-white">
+        <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
+            <div class="flex items-center flex-shrink-0 px-4">
+                <h1 class="text-xl font-semibold">Foreman Dashboard</h1>
+            </div>
+            <div class="mt-5 flex-grow flex flex-col">
+                <nav class="flex-1 px-2 space-y-1">
+                    <a href="#" class="bg-gray-900 text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md" id="jobs-tab">
+                        <i class="fas fa-briefcase mr-3 text-gray-300"></i>
+                        Jobs Available
+                    </a>
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md" id="create-job-tab">
+                        <i class="fas fa-plus-circle mr-3 text-gray-300"></i>
+                        Create Job Post
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex flex-col flex-1">
+        <!-- Mobile header -->
+        <div class="md:hidden flex items-center justify-between bg-gray-800 text-white p-4">
+            <h1 class="text-xl font-semibold">Foreman Dashboard</h1>
+            <button class="text-white focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile sidebar -->
+        <div class="md:hidden hidden bg-gray-800 text-white" id="mobile-menu">
+            <nav class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" id="mobile-jobs-tab">
+                    <i class="fas fa-briefcase mr-3"></i>
+                    Jobs Available
+                </a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" id="mobile-create-job-tab">
+                    <i class="fas fa-plus-circle mr-3"></i>
+                    Create Job Post
+                </a>
+            </nav>
+        </div>
+
+        <!-- Content sections -->
+        <main class="flex-1 overflow-y-auto bg-gray-100 p-6">
+            <!-- Jobs Available Section -->
+            <div id="jobs-section" class="block">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-800">Available Jobs</h2>
+                    <div class="flex space-x-2">
+                        <div class="relative">
+                            <input type="text" placeholder="Search jobs..." class="w-64 pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <div class="absolute left-3 top-2.5 text-gray-400">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <select class="rounded-lg border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>All Statuses</option>
+                            <option>Open</option>
+                            <option>In Progress</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for job in job %}
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-5">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-semibold text-gray-800">{{ job.title }}</h3>
+                                {% if job.status == 'open' %}
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Open</span>
+                                {% elif job.status == 'in_progress' %}
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">In Progress</span>
+                                {% elif job.status == 'completed' %}
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">Completed</span>
+                                {% elif job.status == 'cancelled' %}
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">Cancelled</span>
+                                {% endif %}
+                            </div>
+                            <p class="mt-2 text-gray-600">{{ job.description|truncatechars:100 }}</p>
+                            <div class="mt-4 flex items-center text-sm text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>{{ job.location }}</span>
+                            </div>
+                            <div class="mt-2 flex items-center text-sm text-gray-500">
+                                <i class="fas fa-calendar mr-2"></i>
+                                <span>{{ job.start_date|date:"M d, Y" }} - {{ job.end_date|date:"M d, Y" }}</span>
+                            </div>
+                            <div class="mt-2 flex items-center text-sm text-gray-500">
+                                <i class="fas fa-dollar-sign mr-2"></i>
+                                <span>${{ job.pay_amount }} ({{ job.get_pay_frequency_display }})</span>
+                            </div>
+                            <div class="mt-2 flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>{{ job.num_workers_needed }} {{ job.worker_type }}</span>
+                            </div>
+                            <div class="mt-4 flex justify-end">
+                                <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-span-3 p-8 text-center bg-white rounded-lg shadow">
+                        <p class="text-gray-500">No jobs available at the moment.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Create Job Form Section -->
+            <div id="create-job-section" class="hidden">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Create New Job Post</h2>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <form method="post" action="{% url 'create_job' %}">
+                        {% csrf_token %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="title" class="block text-sm font-medium text-gray-700">Job Title</label>
+                                <input type="text" name="title" id="title" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                                <input type="text" name="location" id="location" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                                <textarea name="description" id="description" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                            </div>
+                            <div>
+                                <label for="start_date" class="block text-sm font-medium text-gray-700">Start Date</label>
+                                <input type="date" name="start_date" id="start_date" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="end_date" class="block text-sm font-medium text-gray-700">End Date</label>
+                                <input type="date" name="end_date" id="end_date" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="pay_amount" class="block text-sm font-medium text-gray-700">Pay Amount</label>
+                                <input type="number" name="pay_amount" id="pay_amount" step="0.01" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="pay_frequency" class="block text-sm font-medium text-gray-700">Pay Frequency</label>
+                                <select name="pay_frequency" id="pay_frequency" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="on_completion">On Completion</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="worker_type" class="block text-sm font-medium text-gray-700">Worker Type</label>
+                                <input type="text" name="worker_type" id="worker_type" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="num_workers_needed" class="block text-sm font-medium text-gray-700">Number of Workers Needed</label>
+                                <input type="number" name="num_workers_needed" id="num_workers_needed" min="1" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        <div class="mt-6 flex justify-end">
+                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Create Job Post
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    // Tab switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const jobsTab = document.getElementById('jobs-tab');
+        const createJobTab = document.getElementById('create-job-tab');
+        const mobileJobsTab = document.getElementById('mobile-jobs-tab');
+        const mobileCreateJobTab = document.getElementById('mobile-create-job-tab');
+        const jobsSection = document.getElementById('jobs-section');
+        const createJobSection = document.getElementById('create-job-section');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Desktop tabs
+        jobsTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            jobsSection.classList.remove('hidden');
+            createJobSection.classList.add('hidden');
+            jobsTab.classList.add('bg-gray-900', 'text-white');
+            jobsTab.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+            createJobTab.classList.remove('bg-gray-900', 'text-white');
+            createJobTab.classList.add('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+        });
+
+        createJobTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            createJobSection.classList.remove('hidden');
+            jobsSection.classList.add('hidden');
+            createJobTab.classList.add('bg-gray-900', 'text-white');
+            createJobTab.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+            jobsTab.classList.remove('bg-gray-900', 'text-white');
+            jobsTab.classList.add('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+        });
+
+        // Mobile tabs
+        mobileJobsTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            jobsSection.classList.remove('hidden');
+            createJobSection.classList.add('hidden');
+            mobileMenu.classList.add('hidden');
+        });
+
+        mobileCreateJobTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            createJobSection.classList.remove('hidden');
+            jobsSection.classList.add('hidden');
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Mobile menu toggle
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+</script>
+{% endblock %}
